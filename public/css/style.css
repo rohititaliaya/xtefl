@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #fff;
+    font-size: 1em;
+}
+
+.side-navbar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    margin-left: -300px;
+    background-color: #e3f4ff;
+    transition: 0.5s;
+}
+
+.side-navbar img.logo {
+    border-radius: 2px;
+}
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+    background-color: #ffffff26;
+}
+
+.my-container {
+    transition: 0.4s;
+}
+
+.active-nav {
+    margin-left: 0;
+}
+
+/* for main section */
+.active-cont {
+    margin-left: 250px;
+}
+
+#menu-btn {
+    background-color: #0b36ac;
+    color: #fff;
+    margin-left: -40px;
+}
+/*
+.my-container input {
+    border-radius: 2rem;
+    padding: 2px 20px;
+}
+*/
+a {
+    text-decoration: none;
+}
+
+.login-page {
+    width: 100%;
+    height: 100vh;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+}
+
+.form-right i {
+    font-size: 100px;
+}
+.bg-orange {
+    background-color: #f46738;
+}
+
+/* overriding dataTable css */
+.dataTables_wrapper thead {
+    padding: 2px 0;
+    background-color: #e3f4ff;
+}
+.btnactions i {
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+}
+.ourform .form-group {
+    margin-bottom: 20px;
+}
+.bx {
+    font-size: 25px;
+    vertical-align: middle;
+}
+.nav-link:hover {
+    background-color: #fff;
+}
+.nav-link:hover a {
+    color: #000;
+}
+
+/* Listing form styles */
+.listingform label {
+    font-weight: bold;
+}
+.listingform [class*="col-"] {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.listingform p {
+    margin-bottom:0;
+}
+.listingform .infotxt {
+    color: #9a9a9a;
+}
+.listingform input,
+.listingform .input-group-text {
+    margin-top:5px;
+}
+.listingform h3 {
+    
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 10px;
+}
+
+.listingform textarea{
+    resize: none;
+}

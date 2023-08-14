@@ -1,0 +1,11 @@
+.category3 li{
+    padding: 5px;
+    padding-right: 12px;
+    margin: 5px;
+    list-style: none;
+    border-right: 1px solid;
+} 
+
+.category3 li:last-child {
+    border-right: none;
+}
