@@ -62,7 +62,7 @@
         </li> --}}
 
         <li class="nav-item">
-            <a href="{{ route('provider.basic') }}"><span class="icon">
+            <a href="{{ route('provider.addlisting') }}"><span class="icon">
                 <svg
                   width="22"
                   height="22"
@@ -97,7 +97,7 @@
           </a>
       </li>
         <li class="nav-item">
-          <a href="{{ route('provider.addlisting') }}"><span class="icon">
+          <a href="{{ route('provider.settings') }}"><span class="icon">
               <svg
                 width="22"
                 height="22"

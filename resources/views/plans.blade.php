@@ -322,11 +322,11 @@
         }
     </style>
     <section class="pricing-section">
-       @if (Session::has('error'))
-           <div class="alert alert-danger">
-                {{Session::get( 'error')}}
-           </div>
-       @endif
+        @if (Session::has('error'))
+            <div class="alert alert-danger">
+                {{ Session::get('error') }}
+            </div>
+        @endif
         <div class="container">
             <div class="sec-title text-center">
                 <span class="title">Get plan</span>
@@ -352,9 +352,20 @@
                                 <li class="false">Easy Access</li>
                                 <li class="false">Free Contacts</li>
                             </ul>
-                      
+
                             <div class="btn-box">
-                                <a href="{{route('checkout','basic')}}" class="theme-btn">BUY plan</a>
+                                @auth
+                                    @if (has_active_plan())
+                                        @php
+                                            $plan = get_plan();
+                                        @endphp
+                                        @if ($plan->slug == 'basic' || $plan->slug == 'premium')
+                                            <a href="#" class="theme-btn disabled" disabled>Activated</a>
+                                        @endif
+                                    @else
+                                        <a href="{{ route('checkout', 'basic') }}" class="theme-btn">BUY plan</a>
+                                    @endif
+                                @endauth
                             </div>
                         </div>
                     </div>
@@ -377,12 +388,25 @@
                                 <li class="false">Free Contacts</li>
                             </ul>
                             <div class="btn-box">
-                                <a href="{{route('checkout','premium')}}" class="theme-btn">BUY plan</a>
+                                @auth
+                                    @if (has_active_plan())
+                                        @php
+                                            $plan = get_plan();
+                                        @endphp
+                                        @if ($plan->slug == 'premium')
+                                            <a href="#" class="theme-btn disabled" disabled>Activated</a>
+                                        @else
+                                            <a href="{{ route('checkout', 'premium') }}" class="theme-btn">Upgrade</a>
+                                        @endif
+                                    @else
+                                        <a href="{{ route('checkout', 'premium') }}" class="theme-btn">BUY plan</a>
+                                    @endif
+                                @endauth
                             </div>
                         </div>
                     </div>
 
-                   
+
                 </div>
             </div>
         </div>

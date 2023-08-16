@@ -17,14 +17,22 @@
                                     <th>Plan</th>
                                     <th>Amount</th>
                                     <th>Transaction Id</th>
+                                    <th>Expiry date</th>
                                     <th>Status</th>
-                                    <tr>invoice</tr>
                                 </tr>
                                 @foreach ($transactions as $item)
                                 <tr>
                                     <td>{{\App\Models\Plan::find($item->plan_id)->first()->name}}</td>
                                     <td>${{$item->amount}}</td>
                                     <td>{{$item->transaction_id}}</td>
+                                
+                                    <td>
+                                        @if (!is_null($item->expiry_date))
+                                            {{date('d-m-Y',strtotime($item->expiry_date))}}
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
                                     <td>
                                         @if ($item->status == 1)
                                             <span class="badge bg-success">success</span>

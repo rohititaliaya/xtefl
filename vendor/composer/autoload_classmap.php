@@ -42,6 +42,7 @@ return array(
     'App\\Http\\Controllers\\ProgramTypeController' => $baseDir . '/app/Http/Controllers/ProgramTypeController.php',
     'App\\Http\\Controllers\\ProviderController' => $baseDir . '/app/Http/Controllers/ProviderController.php',
     'App\\Http\\Controllers\\ProviderListingController' => $baseDir . '/app/Http/Controllers/ProviderListingController.php',
+    'App\\Http\\Controllers\\Provider\\SettingController' => $baseDir . '/app/Http/Controllers/Provider/SettingController.php',
     'App\\Http\\Controllers\\SubCategoryController' => $baseDir . '/app/Http/Controllers/SubCategoryController.php',
     'App\\Http\\Controllers\\TimingController' => $baseDir . '/app/Http/Controllers/TimingController.php',
     'App\\Http\\Controllers\\UrlController' => $baseDir . '/app/Http/Controllers/UrlController.php',

@@ -37,6 +37,7 @@ class ComposerStaticInitad236315344b1ac4bf7a0c56cd1c34ac
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '320163ac6b93aebe3dc25b60a0533d56' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/helpers.php',
         '1e298922c3e2134d42dcdb03e6d5f55a' => __DIR__ . '/..' . '/torann/geoip/src/helpers.php',
+        '8fde5feda9697fe0ee53a3938c839fb0' => __DIR__ . '/../..' . '/app/Helpers/Helper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -626,6 +627,7 @@ class ComposerStaticInitad236315344b1ac4bf7a0c56cd1c34ac
         'App\\Http\\Controllers\\ProgramTypeController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProgramTypeController.php',
         'App\\Http\\Controllers\\ProviderController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProviderController.php',
         'App\\Http\\Controllers\\ProviderListingController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProviderListingController.php',
+        'App\\Http\\Controllers\\Provider\\SettingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Provider/SettingController.php',
         'App\\Http\\Controllers\\SubCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/SubCategoryController.php',
         'App\\Http\\Controllers\\TimingController' => __DIR__ . '/../..' . '/app/Http/Controllers/TimingController.php',
         'App\\Http\\Controllers\\UrlController' => __DIR__ . '/../..' . '/app/Http/Controllers/UrlController.php',

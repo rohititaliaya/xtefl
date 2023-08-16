@@ -44,6 +44,8 @@ Route::get('/provider', function ()
 Route::middleware('auth')->prefix('provider')->group(function ()
 {
     Route::get('/dashboard',[\App\Http\Controllers\ProviderController::class,'index'])->name('provider.dashboard');
+    Route::get('/settings',[\App\Http\Controllers\Provider\SettingController::class,'index'])->name('provider.settings');
+    Route::post('/settings/store',[\App\Http\Controllers\Provider\SettingController::class,'store'])->name('provider.settings.store');
     Route::get('/addlisting',[\App\Http\Controllers\ProviderController::class,'addlisting'])->name('provider.addlisting');
     Route::post('/addlisting',[\App\Http\Controllers\ProviderController::class,'storeListing'])->name('provider.addlisting');
     Route::get('/listing/{id}',[\App\Http\Controllers\ProviderController::class,'show'])->name('provider.listing');
