@@ -20,12 +20,12 @@ use Illuminate\Support\Facades\Route;
 //----------------------------------- frontend paths --------------------------------//
 
 Route::get('/', [FrontController::class,'index'])->name('home');
-Route::get('/plans', [HomeController::class,'plans'])->name('plans');
+Route::get('/plans/{refid}', [HomeController::class,'plans'])->name('plans');
 
 Route::prefix('checkout')->middleware('auth')->group(function ()
 {
-    Route::get('/{plan}', [CheckoutController::class, 'checkout'])->name('checkout');
-    Route::get('/success/{plan_id}', [CheckoutController::class, 'success'])->name('checkout.success');
+    Route::get('/{plan}/{refid}', [CheckoutController::class, 'checkout'])->name('checkout');
+    Route::get('/success/{plan_id}/redirect', [CheckoutController::class, 'success'])->name('checkout.success');
     Route::get('/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
     Route::get('/download/{session_id}', [CheckoutController::class, 'download'])->name('checkout.download');
 });
@@ -46,6 +46,7 @@ Route::middleware('auth')->prefix('provider')->group(function ()
     Route::get('/dashboard',[\App\Http\Controllers\ProviderController::class,'index'])->name('provider.dashboard');
     Route::get('/settings',[\App\Http\Controllers\Provider\SettingController::class,'index'])->name('provider.settings');
     Route::post('/settings/store',[\App\Http\Controllers\Provider\SettingController::class,'store'])->name('provider.settings.store');
+    Route::get('/all-listings',[\App\Http\Controllers\ProviderController::class,'allListings'])->name('provider.all-listings');
     Route::get('/addlisting',[\App\Http\Controllers\ProviderController::class,'addlisting'])->name('provider.addlisting');
     Route::post('/addlisting',[\App\Http\Controllers\ProviderController::class,'storeListing'])->name('provider.addlisting');
     Route::get('/listing/{id}',[\App\Http\Controllers\ProviderController::class,'show'])->name('provider.listing');

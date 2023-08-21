@@ -11,14 +11,15 @@ use Stripe\Checkout\Session;
 
 class CheckoutController extends Controller
 {
-    public function checkout(Request $request,$slug) {
+    public function checkout(Request $request,$slug,$refid) {
         
         $plan = Plan::where('slug', $slug)->first();
-
+        
         if ($plan) {
             $data = [
                 'email' => $request->user()->email,
                 'plan_id' => $plan->id,
+                'reference_id'=>$refid,
                 'payment_gateway' => 'stripe',
                 'amount' => $plan->price, // amount from plan will go here
                 'currency' => 'usd', // currency from setting or plan will go here
@@ -28,6 +29,8 @@ class CheckoutController extends Controller
             ];
             $transactionnew = new Transaction();
             $transactionnew = $transactionnew->create($data);
+           
+
             try {
                 \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
                 $session = Session::create(
@@ -38,7 +41,7 @@ class CheckoutController extends Controller
                         ]],
                         'mode' => 'subscription',
                         'success_url' => route('checkout.success', $transactionnew->id) . '?session_id={CHECKOUT_SESSION_ID}',
-                        'cancel_url' => route('plans')
+                        'cancel_url' => route('plans',$refid)
                     ]
                 );
             } catch (\Throwable $th) {

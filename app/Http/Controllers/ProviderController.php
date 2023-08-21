@@ -40,6 +40,12 @@ class ProviderController extends Controller
         return view('provider.home',compact('listings'));
     }
 
+    public function allListings()
+    {
+        $listings = ProviderListing::where('provider_id',Auth::user()->id)->get();
+        return view('provider.listings.index',compact('listings'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

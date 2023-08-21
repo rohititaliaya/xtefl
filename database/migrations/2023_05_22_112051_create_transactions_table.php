@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('amount')->nullable();
             $table->string('currency')->nullable();
             $table->string('plan_id')->nullable();
+            $table->string('reference_id')->nullable();
             $table->string('transaction_id')->nullable();
             $table->string('response')->nullable();
             $table->integer('status')->default(0);

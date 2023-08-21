@@ -25,7 +25,6 @@
                                     <td>{{\App\Models\Plan::find($item->plan_id)->first()->name}}</td>
                                     <td>${{$item->amount}}</td>
                                     <td>{{$item->transaction_id}}</td>
-                                
                                     <td>
                                         @if (!is_null($item->expiry_date))
                                             {{date('d-m-Y',strtotime($item->expiry_date))}}
@@ -42,7 +41,7 @@
                                     </td>
                                     <td>
                                         @if ($item->status == 1)
-                                        <a href="{{route('checkout.download', $item->transaction_id)}}">Download PDF</a>
+                                            <a href="{{route('checkout.download', $item->transaction_id)}}">Download PDF</a>
                                         @endif
                                     </td>
                                 </tr>

@@ -363,7 +363,7 @@
                                             <a href="#" class="theme-btn disabled" disabled>Activated</a>
                                         @endif
                                     @else
-                                        <a href="{{ route('checkout', 'basic') }}" class="theme-btn">BUY plan</a>
+                                        <a href="{{ route('checkout', ['basic',$refid]) }}" class="theme-btn">BUY plan</a>
                                     @endif
                                 @endauth
                             </div>
@@ -396,10 +396,10 @@
                                         @if ($plan->slug == 'premium')
                                             <a href="#" class="theme-btn disabled" disabled>Activated</a>
                                         @else
-                                            <a href="{{ route('checkout', 'premium') }}" class="theme-btn">Upgrade</a>
+                                            <a href="{{ route('checkout', ['premium',$refid]) }}" class="theme-btn">Upgrade</a>
                                         @endif
                                     @else
-                                        <a href="{{ route('checkout', 'premium') }}" class="theme-btn">BUY plan</a>
+                                        <a href="{{ route('checkout', ['premium',$refid]) }}" class="theme-btn">BUY plan</a>
                                     @endif
                                 @endauth
                             </div>

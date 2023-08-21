@@ -26,7 +26,7 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function plans() {
-        return view('plans');
+    public function plans($refid) {
+        return view('plans',compact('refid'));
     }
 }
