@@ -1,7 +1,187 @@
 @extends('provider.layouts.app')
 
 @section('content')
-    <div class="container-fluid">
+<div class="row y-gap-20 justify-between items-end pb-60 lg:pb-40 md:pb-32">
+    <div class="col-auto">
+        <h1 class="text-30 lh-14 fw-600">Listings</h1>
+    </div>
+    <div class="col-auto">
+        <a href="{{route('provider.addlisting')}}" class="button -md h-60 -blue-1 bg-blue-1 text-white">Create Listing <span class="icon-arrow-top-right ml-15"></span></a>
+    </div>
+</div>
+
+
+<div class="py-30 px-30 rounded-4 bg-white shadow-3 mb-50">
+    <div class="row y-gap-20">
+        <div class="col-12">
+            <!-- one listing -->
+            <div class="row x-gap-20 y-gap-30">
+                <div class="col-md-auto">
+
+                    <div class="cardImage ratio ratio-1:1 w-200 md:w-1/1 rounded-4">
+                        <div class="cardImage__content">
+
+                            <img class="rounded-4 col-12" src="{{asset('assets/images/dashboard/featured/2.jpg')}}" alt="image">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <h3 class="text-18 lh-14 fw-500">Great Northern Hotel, a Tribute Portfolio Hotel, London</h3>
+
+                    <div class="row x-gap-10 y-gap-10 items-center pt-30">
+                        <div class="col-auto">
+                            <div class="rounded-100 py-10 px-20 text-14 lh-14 bg-green-1 text-green-2">Status: Active</div>
+
+                        </div>
+                        <div class="col-auto">
+                            <div class="rounded-100 py-10 px-20 text-14 lh-14 bg-blue-2 text-blue-1">Plan: Basic</div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="rounded-100 py-10 px-20 text-14 lh-14 bg-red-3 text-red-1 ">Impressions: 4598</div>
+                        </div>
+
+                        <div class="col-auto">
+                            <div class="rounded-100 py-10 px-20 text-14 lh-14 bg-yellow-4">Clicks: 587</div>
+                        </div>
+                    </div>
+
+                    <div class="row x-gap-10 y-gap-10 pt-10 mt-40 border-top-light">
+
+                        <div class="col-auto">
+                            <div class="d-flex items-center">
+                                <div class="flex-center bg-blue-1 rounded-4 size-30 text-12 fw-600 text-white">
+                                    <a href="edit-listings.php">
+                                        <i class="icon-eye text-16 text-white lh-16"></i>
+                                    </a>
+                                </div>
+                                <div class="text-14 text-dark-1 fw-500 ml-10">
+                                    <a href="edit-listings.php">
+                                        Edit
+                                    </a>
+                                </div>
+
+                                <div class="flex-center bg-blue-1 rounded-4 size-30 text-12 fw-600 text-white ml-30">
+                                    <a href="#">
+                                        <i class="icon-eye text-16 text-white lh-16"></i>
+                                    </a>
+                                </div>
+                                <div class="text-14 text-dark-1 fw-500 ml-10">
+                                    <a href="#">
+                                        Stats
+                                    </a>
+                                </div>
+                                
+                                <div class="flex-center bg-blue-1 rounded-4 size-30 text-12 fw-600 text-white ml-30">
+                                    <a href="#">
+                                        <i class="icon-eye text-16 text-white lh-16"></i>
+                                    </a>
+                                </div>
+                                <div class="text-14 text-dark-1 fw-500 ml-10">
+                                    <a href="#">
+                                        Change Plan
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="py-30 px-30 rounded-4 bg-white shadow-3 mb-50">
+    <div class="row y-gap-20">
+        <div class="col-12">
+            <!-- one listing -->
+            <div class="row x-gap-20 y-gap-30">
+                <div class="col-md-auto">
+
+                    <div class="cardImage ratio ratio-1:1 w-200 md:w-1/1 rounded-4">
+                        <div class="cardImage__content">
+
+                            <img class="rounded-4 col-12" src="{{asset('assets/images/dashboard/featured/2.jpg')}}" alt="image">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <h3 class="text-18 lh-14 fw-500">Great Northern Hotel, a Tribute Portfolio Hotel, London</h3>
+
+                    <div class="row x-gap-10 y-gap-10 items-center pt-30">
+                        <div class="col-auto">
+                            <div class="rounded-100 py-10 px-20 text-14 lh-14 bg-green-1 text-green-2">Status: Active</div>
+
+                        </div>
+                        <div class="col-auto">
+                            <div class="rounded-100 py-10 px-20 text-14 lh-14 bg-blue-2 text-blue-1">Plan: Basic</div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="rounded-100 py-10 px-20 text-14 lh-14 bg-red-3 text-red-1 ">Impressions: 4598</div>
+                        </div>
+
+                        <div class="col-auto">
+                            <div class="rounded-100 py-10 px-20 text-14 lh-14 bg-yellow-4">Clicks: 587</div>
+                        </div>
+                    </div>
+
+                    <div class="row x-gap-10 y-gap-10 pt-10 mt-40 border-top-light">
+
+                        <div class="col-auto">
+                            <div class="d-flex items-center">
+                                <div class="flex-center bg-blue-1 rounded-4 size-30 text-12 fw-600 text-white">
+                                    <a href="edit-listings.php">
+                                        <i class="icon-eye text-16 text-white lh-16"></i>
+                                    </a>
+                                </div>
+                                <div class="text-14 text-dark-1 fw-500 ml-10">
+                                    <a href="edit-listings.php">
+                                        Edit
+                                    </a>
+                                </div>
+
+                                <div class="flex-center bg-blue-1 rounded-4 size-30 text-12 fw-600 text-white ml-30">
+                                    <a href="#">
+                                        <i class="icon-eye text-16 text-white lh-16"></i>
+                                    </a>
+                                </div>
+                                <div class="text-14 text-dark-1 fw-500 ml-10">
+                                    <a href="#">
+                                        Stats
+                                    </a>
+                                </div>
+                                
+                                <div class="flex-center bg-blue-1 rounded-4 size-30 text-12 fw-600 text-white ml-30">
+                                    <a href="#">
+                                        <i class="icon-eye text-16 text-white lh-16"></i>
+                                    </a>
+                                </div>
+                                <div class="text-14 text-dark-1 fw-500 ml-10">
+                                    <a href="#">
+                                        Change Plan
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+    {{-- <div class="container-fluid">
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -19,7 +199,7 @@
                                 {{ Session::get('error') }}
                             </div>
                         @endif
-                        {{-- <a href="{{ route('admin.url.create') }}" class="btn btn-primary">Add Content</a> --}}
+                        {{-- <a href="{{ route('admin.url.create') }}" class="btn btn-primary">Add Content</a> -- }}
 <table>
 
     <tr>
@@ -74,7 +254,7 @@
             </div>
         </div>
 
-    </div>
+    </div> --}}
 
    
 @endsection

@@ -1,4 +1,68 @@
-<body>
+<div class="dashboard__sidebar bg-white scroll-bar-1">
+
+
+  <div class="sidebar -dashboard">
+
+    <div class="sidebar__item">
+      <div class="sidebar__button -is-active">
+        <a href="{{route('provider.dashboard')}}" class="d-flex items-center text-15 lh-1 fw-500">
+          <img src="{{asset('assets/images/dashboard/dashboard/sidebar/compass.svg')}}" alt="image" class="mr-15">
+          Dashboard
+        </a>
+      
+      </div>
+    </div>
+
+    <div class="sidebar__item">
+      <div class="sidebar__button ">
+        <a href="{{route('provider.all-listings')}}" class="d-flex items-center text-15 lh-1 fw-500">
+          <img src="{{asset('assets/images/dashboard/dashboard/sidebar/booking.svg')}}" alt="image" class="mr-15">
+          Listings
+        </a>
+      
+      </div>
+    </div>
+
+
+    <div class="sidebar__item">
+      <div class="sidebar__button ">
+        <a href="{{route('provider.settings')}}" class="d-flex items-center text-15 lh-1 fw-500">
+          <img src="{{asset('assets/images/dashboard/dashboard/sidebar/gear.svg')}}" alt="image" class="mr-15">
+          Settings
+        </a>
+      
+      </div>
+    </div>
+    
+    <div class="sidebar__item">
+      <div class="sidebar__button ">
+        <a href="{{route('provider.billing')}}" class="d-flex items-center text-15 lh-1 fw-500">
+          <img src="{{asset('assets/images/dashboard/dashboard/sidebar/bookmark.svg')}}" alt="image" class="mr-15">
+          Billing
+        </a>
+      </div>
+    </div>
+
+    <div class="sidebar__item">
+      <div class="sidebar__button ">
+
+        <a href="{{ route('logout') }}" class="d-flex items-center text-15 lh-1 fw-500" onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">
+          <img src="{{asset('assets/images/dashboard/dashboard/sidebar/log-out')}}.svg" alt="image" class="mr-15">
+          Logout
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+      
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+{{-- <body>
    
 <!-- ======== sidebar-nav start =========== -->
 <aside class="sidebar-nav-wrapper">
@@ -59,7 +123,7 @@
             <a href="{{ route('admin.url.index') }}"><i class="bx bx-user-check"></i>
                 <span class="mx-2">Url</span>
             </a>
-        </li> --}}
+        </li> -- }}
 
         <li class="nav-item">
             <a href="{{ route('provider.addlisting') }}"><span class="icon">
@@ -134,4 +198,4 @@
     </nav>
   </aside>
   <div class="overlay"></div>
-  <!-- ======== sidebar-nav end =========== -->
+  <!-- ======== sidebar-nav end =========== --> --}}
