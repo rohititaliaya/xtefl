@@ -7,6 +7,7 @@
                 <div class="col-xl-6 col-lg-7 col-md-9">
                     <div class="px-50 py-50 sm:px-20 sm:py-20 bg-white shadow-4 rounded-4">
                         <form method="POST" action="{{ route('register') }}">
+                           
                             @csrf
                             <div class="row y-gap-20">
                                 <div class="col-12">
@@ -15,38 +16,48 @@
                                             class="text-blue-1">Log in</a>
                                     </p>
                                 </div>
+                                @if ($errors->any())
+                                @foreach ($errors->all() as $error)
+                                    <div class="text-danger">{{$error}}</div>
+                                @endforeach
+                            @endif
 
                                 <div class="col-12">
 
                                     <div class="form-input ">
-                                        <input type="text" required>
-                                        <label class="lh-1 text-14 text-light-1">First Name</label>
+                                        <input type="text" name="name" required>
+                                        <label class="lh-1 text-14 text-light-1">Name</label>
                                     </div>
 
                                 </div>
 
-                                <div class="col-12">
+                                {{-- <div class="col-12">
 
                                     <div class="form-input ">
                                         <input type="text" required>
                                         <label class="lh-1 text-14 text-light-1">Last Name</label>
                                     </div>
 
+                                </div> --}}
+
+                                <div class="col-12">
+                                    <div class="form-input ">
+                                        <input type="text" name="website" id="website" required>
+                                        <label class="lh-1 text-14 text-light-1">Website</label>
+                                    </div>
                                 </div>
 
                                 <div class="col-12">
-
                                     <div class="form-input ">
-                                        <input type="text" required>
+                                        <input type="email" name="email" id="email" required>
                                         <label class="lh-1 text-14 text-light-1">Email</label>
                                     </div>
-
                                 </div>
 
                                 <div class="col-12">
 
                                     <div class="form-input ">
-                                        <input type="password" required>
+                                        <input type="password" name="password" id="password" required>
                                         <label class="lh-1 text-14 text-light-1">Password</label>
                                     </div>
 
@@ -55,13 +66,13 @@
                                 <div class="col-12">
 
                                     <div class="form-input ">
-                                        <input type="password" required>
+                                        <input type="password" name="password_confirmation" id="password_confirmation" required>
                                         <label class="lh-1 text-14 text-light-1">Confirm Password</label>
                                     </div>
 
                                 </div>
 
-                                <div class="col-12">
+                                {{-- <div class="col-12">
 
                                     <div class="d-flex ">
                                         <div class="form-checkbox mt-5">
@@ -76,7 +87,7 @@
 
                                     </div>
 
-                                </div>
+                                </div> --}}
 
                                 <div class="col-12">
 

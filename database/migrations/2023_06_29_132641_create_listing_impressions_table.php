@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('provider_id');
             $table->integer('listing_id');
-            $table->string('type    ');
+            $table->string('type');
             $table->string('ip')->nullable();
             $table->string('device');
             $table->string('country');

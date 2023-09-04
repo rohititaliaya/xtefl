@@ -1,4 +1,5 @@
-@extends('front.app')
+@extends('provider.layouts.app')
+
 @section('content')
     <style>
         a,
@@ -321,6 +322,151 @@
             border-color: #ffc20b;
         }
     </style>
+    <section class="layout-pt-sm layout-pb-md">
+		<div data-anim-wrap="" class="container animated">
+			
+
+			<div class="row y-gap-30">
+
+
+				<div class="col-md-6 col-lg-5 offset-lg-1">
+					<div class="priceCard -type-1 rounded-16 bg-white shadow-2">
+						<div class="priceCard__content py-45 px-60 text-center">
+							<div class="priceCard__type text-18 lh-11 fw-500 text-dark-1">Basic</div>
+							<div class="priceCard__price text-50 lh-11 fw-700 text-dark-1 mt-15">$10</div>
+							<div class="priceCard__period">per month</div>
+							<img class="mt-30" src="img/pricing/2.svg" alt="icon">
+							<div class="priceCard__text text-left pr-15 mt-40">Standard listing submission, active for 30 dayss</div>
+
+							<div class="text-left y-gap-15 mt-35">
+
+								<div>
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check text-purple-1 pr-8">
+										<polyline points="20 6 9 17 4 12"></polyline>
+									</svg>
+									All Operating Supported
+								</div>
+
+								<div>
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check text-purple-1 pr-8">
+										<polyline points="20 6 9 17 4 12"></polyline>
+									</svg>
+									Great Interface
+								</div>
+
+								<div>
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check text-purple-1 pr-8">
+										<polyline points="20 6 9 17 4 12"></polyline>
+									</svg>
+									Allows encryption
+								</div>
+
+								<div>
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check text-purple-1 pr-8">
+										<polyline points="20 6 9 17 4 12"></polyline>
+									</svg>
+									Face recognized system
+								</div>
+
+								<div>
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check text-purple-1 pr-8">
+										<polyline points="20 6 9 17 4 12"></polyline>
+									</svg>
+									24/7 Full support
+								</div>
+
+							</div>
+
+							<div class="d-inline-block mt-30">
+                                @auth
+                                    @if (has_active_plan($refid))
+                                        @php
+                                            $plan = get_plan($refid);
+                                        @endphp
+                                        @if ($plan->slug == 'basic' || $plan->slug == 'premium')
+                                            <a href="#" class="button -md -blue-1 bg-blue-1 text-white">Activated</a>
+                                        @endif
+                                    @else
+                                        <a href="{{ route('checkout', ['basic',$refid]) }}" class="button -md -blue-1 bg-blue-1 text-white">Subscribe</a>
+                                    @endif
+                                @endauth
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-lg-5">
+					<div class="priceCard -type-1 rounded-16 bg-white shadow-2">
+						<div class="priceCard__content py-45 px-60 text-center">
+							<div class="priceCard__type text-18 lh-11 fw-500 text-dark-1">Premium</div>
+							<div class="priceCard__price text-50 lh-11 fw-700 text-dark-1 mt-15">$20</div>
+							<div class="priceCard__period">per month</div>
+							<img class="mt-30" src="img/pricing/3.svg" alt="icon">
+							<div class="priceCard__text text-left pr-15 mt-40">Standard listing submission, active for 30 dayss</div>
+
+							<div class="text-left y-gap-15 mt-35">
+
+								<div>
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check text-purple-1 pr-8">
+										<polyline points="20 6 9 17 4 12"></polyline>
+									</svg>
+									All Operating Supported
+								</div>
+
+								<div>
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check text-purple-1 pr-8">
+										<polyline points="20 6 9 17 4 12"></polyline>
+									</svg>
+									Great Interface
+								</div>
+
+								<div>
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check text-purple-1 pr-8">
+										<polyline points="20 6 9 17 4 12"></polyline>
+									</svg>
+									Allows encryption
+								</div>
+
+								<div>
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check text-purple-1 pr-8">
+										<polyline points="20 6 9 17 4 12"></polyline>
+									</svg>
+									Face recognized system
+								</div>
+
+								<div>
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check text-purple-1 pr-8">
+										<polyline points="20 6 9 17 4 12"></polyline>
+									</svg>
+									24/7 Full support
+								</div>
+
+							</div>
+
+							<div class="d-inline-block mt-30">
+                                @auth
+                                    @if (has_active_plan($refid))
+                                        @php
+                                            $plan = get_plan($refid);
+                                        @endphp
+                                        @if ($plan->slug == 'premium')
+                                            <a class="button -md -blue-1 bg-blue-1 text-white disabled" href="#">Subscribe</a>
+                                        @else
+                                            <a href="{{ route('checkout', ['premium',$refid]) }}" class="button -md -blue-1 bg-blue-1 text-white">Upgrade</a>
+                                        @endif
+                                    @else
+                                        <a class="button -md -blue-1 bg-blue-1 text-white" href="{{ route('checkout', ['premium',$refid]) }}">Subscribe</a>
+                                    @endif
+                                @endauth
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</section>
     <section class="pricing-section">
         @if (Session::has('error'))
             <div class="alert alert-danger">
@@ -355,9 +501,9 @@
 
                             <div class="btn-box">
                                 @auth
-                                    @if (has_active_plan())
+                                    @if (has_active_plan($refid))
                                         @php
-                                            $plan = get_plan();
+                                            $plan = get_plan($refid);
                                         @endphp
                                         @if ($plan->slug == 'basic' || $plan->slug == 'premium')
                                             <a href="#" class="theme-btn disabled" disabled>Activated</a>
@@ -389,9 +535,9 @@
                             </ul>
                             <div class="btn-box">
                                 @auth
-                                    @if (has_active_plan())
+                                    @if (has_active_plan($refid))
                                         @php
-                                            $plan = get_plan();
+                                            $plan = get_plan($refid);
                                         @endphp
                                         @if ($plan->slug == 'premium')
                                             <a href="#" class="theme-btn disabled" disabled>Activated</a>

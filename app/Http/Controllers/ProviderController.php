@@ -341,46 +341,55 @@ class ProviderController extends Controller
 
     public function storeListing(Request $request){
         
-        $type = $request->type;
-
-        $imageAt = $type.'_image';
         // dd($request->all());
-        
-        $exist = Listing::where('provider_id', auth()->user()->id)->where('type',$type)->first();
-        $imageName = null;
-        if ($request->has($imageAt)) {
-            $imageName = 'p_'.time().'_'.$request->provider_id.'.'.$request[$imageAt]->extension();
-            $request[$imageAt]->move(public_path('uploads'), $imageName);                
-        }elseif($exist){
-            $imageName = $exist->image;
-        }
-        if ($exist) {
-            $exist->provider_id = $request['provider_id'];
-            $exist->type = $request['type'];
-            $exist->title = $request[$type.'_title'];
-            $exist->image = $imageName;
-            $exist->video_id = $request[$type.'_id'];
-            $exist->tag = $request[$type.'_tag'];
-            $exist->description = $request[$type.'_description'];
-            $exist->url = $request[$type.'_url'];
-            $exist->save();
-            return redirect()->back()->with('success','Successfully Updated');
+        $data = $request->all(); 
+        $user_id = Auth::user()->id;
+        // dd($request->recomm_image->extension());
+        // $reference_id = $this->generateRandomString();
+        $data['reference_id'] = $this->generateRandomString();
+        // $request->reference_id = $reference_id;
 
+        // dd($data);
+        $recomm_image = "";
+        if ($request->recomm_image) {
+            $recomm_image = 'p_'.time().'_'.$user_id.'.'.$request->recomm_image->extension();
+            $request->recomm_image->move(public_path('uploads'), $recomm_image);             
+            
         }
 
-            $listing = new Listing();
-            $listing->provider_id = $request['provider_id'];
-            $listing->type = $request['type'];
-            $listing->title = $request[$type.'_title'];
-            $listing->image = $imageName;
-            $listing->video_id = $request[$type.'_id'];
-            $listing->tag = $request[$type.'_tag'];
-            $listing->description = $request[$type.'_description'];
-            $listing->url = $request[$type.'_url'];
-            $listing->save();
-        
-        return redirect()->back()->with('success','Successfully saved');
+        $popular_image = "";
+        if ($request->popular_image) {
+            $popular_image = 'p_'.time().'_'.$user_id.'.'.$request->popular_image->extension();
+            $request->popular_image->move(public_path('uploads'), $popular_image);             
+            
+        }
 
+        $featured_image = "";
+        if ($request->featured_image) {
+            $featured_image = 'p_'.time().'_'.$user_id.'.'.$request->featured_image->extension();
+            $request->featured_image->move(public_path('uploads'), $featured_image);             
+            
+        }
+
+        $org_image = "";
+        if ($request->org_image) {
+            $org_image = 'p_'.time().'_'.$user_id.'.'.$request->org_image->extension();
+            $request->org_image->move(public_path('uploads'), $org_image);             
+            
+        }
+        $data['recomm_image'] = $recomm_image;
+        $data['popular_image'] = $popular_image;
+        $data['featured_image'] = $featured_image;
+        $data['org_image'] = $org_image;
+
+        if ($request->same_as == "on") {
+            $data['same_as'] = '1';
+        }else {
+            $data['same_as'] = '0';
+        }
+
+        $plisting = ProviderListing::create($data);
+        return redirect()->back()->withSuccess('Listing Added Successfully !');
     }
 
     public function basic() {

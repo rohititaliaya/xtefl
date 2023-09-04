@@ -10,7 +10,30 @@ class ProviderListing extends Model
 {
     use HasFactory;
 
-    public $fillable = ['is_promoted','months'];
+    public $fillable = [
+        "reference_id",
+        "provider_id",
+        "campaign",
+        "target_url",
+        "utm",
+        "recomm_title",
+        "recomm_url",
+        "same_as",
+        "popular_title",
+        "popular_url",
+        "featured_title",
+        "featured_url",
+        "org_description",
+        "org_url",
+        "video_description",
+        "youtube_url",
+        "video_url",
+        "status",
+        "recomm_image",
+        "popular_image",
+        "featured_image",
+        "org_image"
+    ];
 
     public function provider()
     {
@@ -20,7 +43,7 @@ class ProviderListing extends Model
     // protected function promotedImg(): Attribute
     // {
     //     return Attribute::make(
-    //         get: fn (string $value) => env('IMAGE_URL').'/public/uploads/'.$value,
+    //         get: fn (string $value),
     //     );
     // }
 }   
