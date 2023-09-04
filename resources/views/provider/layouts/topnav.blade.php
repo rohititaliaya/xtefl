@@ -3,7 +3,7 @@
     data-x-toggle="is-menu-opened">
     <div data-anim="fade" class="header__container px-30 sm:px-20">
         <div class="-left-side">
-            <a href="index.html" class="header-logo" data-x="header-logo" data-x-toggle="is-logo-dark">
+            <a href="/provider/dashboard" class="header-logo" data-x="header-logo" data-x-toggle="is-logo-dark">
                 <img src="{{asset('assets/images/dashboard/logo-dark.png')}}" alt="logo icon">
                 <img src="{{asset('assets/images/dashboard/logo-light.png')}}" alt="logo icon">
             </a>

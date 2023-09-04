@@ -190,7 +190,7 @@
             <div data-anim="fade" class="header__container px-30 sm:px-20">
                 <div class="row justify-between items-center">
                     <div class="col-auto">
-                        <div class="d-flex items-center"> <a href="index.html" class="header-logo mr-20"
+                        <div class="d-flex items-center"> <a href="/provider/dashboard" class="header-logo mr-20"
                                 data-x="header-logo" data-x-toggle="is-logo-dark"> <img
                                     src="/preview/img/general/logo-light.svg" alt="logo icon"> <img
                                     src="/preview/img/general/logo-dark.svg" alt="logo icon"> </a>
