@@ -184,69 +184,69 @@ class ProviderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            "title"=>'required|max:75',
-            "image"=>"image|mimes:png,jpg,jpeg|max:1024",
-            "listing_url"=>"required",
-            // "promoted_title"=>"required|max:75",
-            // "promoted_image"=>"required",
-            // "video_url"=>"required"
-        ]);
+        $plisting = ProviderListing::find($id);
+        $data = $request->all(); 
         $user_id = Auth::user()->id;
+        $data['reference_id'] =  $plisting->reference_id;
 
-        $listing = ProviderListing::find($id);
-
-        $imageName = $listing->image;
-        if ($request->image) {
-            $imageName = time().'_'.$user_id.'.'.$request->image->extension();
-            $request->image->move(public_path('uploads'), $imageName);
-            File::delete(public_path('uploads/'.$listing->image));
+        $recomm_image = $plisting->recomm_image;
+        if ($request->recomm_image) {
+            $recomm_image = 'p_'.time().'_'.$user_id.'.'.$request->recomm_image->extension();
+            $request->recomm_image->move(public_path('uploads'), $recomm_image);             
+            
         }
 
-        $pimageName = $listing->promoted_img;
-        if ($request->promoted_image) {
-            $pimageName = 'p_'.time().'_'.$user_id.'.'.$request->promoted_image->extension();
-            $request->promoted_image->move(public_path('uploads'), $pimageName);             
-            File::delete(public_path('uploads/'.$listing->promoted_img));
+        $popular_image = $plisting->popular_image;
+        if ($request->popular_image) {
+            $popular_image = 'p_'.time().'_'.$user_id.'.'.$request->popular_image->extension();
+            $request->popular_image->move(public_path('uploads'), $popular_image);             
+            
         }
 
-        $pb = "";
-        if ($request->promoted_banner) {
-            // return $request->promoted_banner->extension();
-            $pb = 'pb_'.time().'_'.$user_id.'.'.$request->promoted_banner->extension();
-            $request->promoted_banner->move(public_path('uploads'), $pb);                
+        $featured_image = $plisting->featured_image;
+        if ($request->featured_image) {
+            $featured_image = 'p_'.time().'_'.$user_id.'.'.$request->featured_image->extension();
+            $request->featured_image->move(public_path('uploads'), $featured_image);             
+            
         }
 
-        $listing->title = $request->title;
-        $listing->image = $imageName;
-        $listing->promoted_title = $request->promoted_title;
-        $listing->promoted_img = $pimageName;
-        $listing->promoted_banner = $pb;
+        $org_image = $plisting->org_image;
+        if ($request->org_image) {
+            $org_image = 'p_'.time().'_'.$user_id.'.'.$request->org_image->extension();
+            $request->org_image->move(public_path('uploads'), $org_image);             
+            
+        }
+        $data['recomm_image'] = $recomm_image;
+        $data['popular_image'] = $popular_image;
+        $data['featured_image'] = $featured_image;
+        $data['org_image'] = $org_image;
 
-        $listing->listing_url = $request->listing_url;
-        $listing->video = $request->video_url;
-        $listing->save();
+        if ($request->same_as == "on") {
+            $data['same_as'] = '1';
+        }else {
+            $data['same_as'] = '0';
+        }
 
-        $mprovider = User::find($user_id); 
+        $plisting = ProviderListing::find($id)->update($data);
 
-        $data = [
-            'title' => 'You have edited Listing',
-            'content' => '<h5>Please contect us</h5>'
-        ];
-        $mail = new ListingMail('You have created Listing');
-        $mail->to($mprovider->email);
-        $mail->viewData = compact('data');
-        Mail::send($mail);
+        // $data = [
+        //     'title' => 'You have edited Listing',
+        //     'content' => '<h5>Please contect us</h5>'
+        // ];
+        // $mail = new ListingMail('You have created Listing');
+        // $mail->to($mprovider->email);
+        // $mail->viewData = compact('data');
+        // Mail::send($mail);
 
-        // sending email to admin
-        $data = [
-            'title' => 'You have edited Listing',
-            'content' => '<h5>Please contect us</h5>'
-        ];
-        $amail = new ListingMail('Someone created Listing');
-        $amail->to(env('ADMIN_USER'));
-        $amail->viewData = compact('data');
-        Mail::send($amail);
+        // // sending email to admin
+        // $data = [
+        //     'title' => 'You have edited Listing',
+        //     'content' => '<h5>Please contect us</h5>'
+        // ];
+        // $amail = new ListingMail('Someone created Listing');
+        // $amail->to(env('ADMIN_USER'));
+        // $amail->viewData = compact('data');
+        // Mail::send($amail);
 
         return redirect()->back()->with('success','Record updated');
     }
@@ -344,12 +344,8 @@ class ProviderController extends Controller
         // dd($request->all());
         $data = $request->all(); 
         $user_id = Auth::user()->id;
-        // dd($request->recomm_image->extension());
-        // $reference_id = $this->generateRandomString();
         $data['reference_id'] = $this->generateRandomString();
-        // $request->reference_id = $reference_id;
 
-        // dd($data);
         $recomm_image = "";
         if ($request->recomm_image) {
             $recomm_image = 'p_'.time().'_'.$user_id.'.'.$request->recomm_image->extension();
