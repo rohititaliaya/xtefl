@@ -32,9 +32,9 @@ return new class extends Migration
             $table->string('popular_image');
             $table->string('popular_url');
 
-            $table->string('featured_title');
-            $table->string('featured_image');
-            $table->string('featured_url');
+            $table->string('featured_title')->nullable();
+            $table->string('featured_image')->nullable();
+            $table->string('featured_url')->nullable();
  
             $table->string('org_description')->nullable();
             $table->string('org_image')->nullable();

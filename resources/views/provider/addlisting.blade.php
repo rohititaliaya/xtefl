@@ -1,7 +1,7 @@
 @extends('provider.layouts.app')
 
 @section('content')
-    <div class="row y-gap-20 justify-between items-end pb-60 lg:pb-40 md:pb-32">
+    <div class="row y-gap-20 justify-between items-end pb-20 lg:pb-20 md:pb-20">
         <div class="col-auto">
             <h1 class="text-30 lh-14 fw-600">Add Listing</h1>
         </div>
@@ -11,7 +11,7 @@
         @method('POST')
         <input type="text" name="type" value="basic" hidden>
         <input type="text" name="provider_id" value="{{ Auth::user()->id }}" hidden>
-        <div class="py-30 px-30 rounded-4 bg-white shadow-3 mb-50">
+        <div class="py-30 px-30 rounded-4 bg-white shadow-3 mb-20">
             <div class="col-xl-10">
 
                 <div class="row x-gap-20 y-gap-20">
@@ -29,7 +29,7 @@
 
                     </div>
 
-                    <div class="col-12 mt-20">
+                    <div class="col-12">
                         <div class="form-input ">
                             <input type="text" name="target_url" id="target_url" required>
                             <label class="lh-1 text-16 text-light-1">Target URL</label>
@@ -40,7 +40,7 @@
 
                     </div>
                 </div>
-                <div class="row x-gap-20 y-gap-20 mt-30 mb-30">
+                <div class="row x-gap-20 y-gap-20">
                     <div class="col-12">
                         <div class="form-radio d-flex items-center ">
                             <div class="radio">
@@ -94,7 +94,7 @@
 
 
 
-        <div class="py-30 px-30 rounded-4 bg-white shadow-3 mb-50">
+        <div class="py-30 px-30 rounded-4 bg-white shadow-3 mb-20">
             <div class="tabs -underline-2 js-tabs">
 
                 <div class="tabs__controls row x-gap-40 y-gap-10 lg:x-gap-20 js-tabs-controls">
@@ -107,7 +107,7 @@
 
                 </div>
 
-                <div class="tabs__content pt-30 js-tabs-content">
+                <div class="tabs__content js-tabs-content">
 
                     <div class="tabs__pane -tab-item-1 is-tab-el-active">
 
@@ -131,7 +131,7 @@
                                     </div>
 
                                 </div>
-                                <div class="col-12 mt-20">
+                                <div class="col-12">
 
                                     <div class="form-input ">
                                         <textarea required rows="2" name="recomm_url" id="recomm_url" class="bg-light-2 pt-50 lh-14" readonly>https://yourdomain.com/?utm_source=xploretefl.com&utm_medium=paid_referral&utm_campaign=basic_listings&utm_content=recommended_listings</textarea>
@@ -142,7 +142,7 @@
                             </div>
 
 
-                            <div class="mt-50">
+                            <div class="mt-20">
                                 <div class="fw-500">Image</div>
 
                                 <div class="row x-gap-20 y-gap-20 pt-15">
@@ -180,13 +180,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="border-top-light mt-50 mb-50"></div>
+                        <div class="border-top-light mt-20 mb-20"></div>
                         <div class="col-xl-10">
                             <div class="text-18 fw-500 mb-10 bg-light-3 pl-10 py-5">2. Listing Info: <span
                                     class="text-green-2">Popular Programs</span>
                             </div>
 
-                            <div class="row x-gap-20 y-gap-20 mt-20 mb-30">
+                            <div class="row x-gap-20 y-gap-20">
                                 <div class="col-12">
 
                                     <div class="d-flex items-center">
@@ -217,7 +217,7 @@
                                     </div>
 
                                 </div>
-                                <div class="col-12 mt-20">
+                                <div class="col-12">
 
                                     <div class="form-input ">
                                         <textarea required rows="2" name="popular_url" id="popular_url" class="bg-light-2 pt-50 lh-14" readonly>https://yourdomain.com/?utm_source=xploretefl.com&utm_medium=paid_referral&utm_campaign=basic_listings&utm_content=popular_listings</textarea>
@@ -228,7 +228,7 @@
                             </div>
 
 
-                            <div class="mt-50">
+                            <div class="mt-20">
                                 <div class="fw-500">Image</div>
 
                                 <div class="row x-gap-20 y-gap-20 pt-15">
@@ -275,7 +275,7 @@
                 </div>
             </div>
         </div>
-        <div class="py-30 px-30 rounded-4 bg-white shadow-3 mb-50">
+        <div class="py-30 px-30 rounded-4 bg-white shadow-3 mb-20">
             <div class="tabs -underline-2 js-tabs">
 
                 <div class="tabs__controls row x-gap-40 y-gap-10 lg:x-gap-20 js-tabs-controls">
@@ -288,7 +288,7 @@
 
                 </div>
 
-                <div class="tabs__content pt-30 js-tabs-content">
+                <div class="tabs__content  js-tabs-content">
 
               
                     <div class="tabs__pane -tab-item-2 is-tab-el-active">
@@ -309,7 +309,7 @@
                                     </div>
 
                                 </div>
-                                <div class="col-12 mt-20">
+                                <div class="col-12">
 
                                     <div class="form-input ">
                                         <textarea  rows="2" name="featured_url" id="featured_url" class="bg-light-2 pt-50 lh-14" readonly>https://yourdomain.com/?utm_source=xploretefl.com&utm_medium=paid_referral&utm_campaign=premium_listings&utm_content=top_featured_listings</textarea>
@@ -322,7 +322,7 @@
                             </div>
 
 
-                            <div class="mt-50">
+                            <div class="mt-20">
                                 <div class="fw-500">Image</div>
 
                                 <div class="row x-gap-20 y-gap-20 pt-15">
@@ -360,7 +360,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="border-top-light mt-50 mb-50"></div>
+                        <div class="border-top-light mt-20 mb-20"></div>
 
                         <div class="col-xl-10">
                             <div class="text-18 fw-500 mb-10 bg-light-3 pl-10 py-5">2. Featured Organization</div>
@@ -378,7 +378,7 @@
                                     </div>
 
                                 </div>
-                                <div class="col-12 mt-20">
+                                <div class="col-12">
 
                                     <div class="form-input ">
                                         <textarea rows="2" name="org_url" id="org_url" class="bg-light-2 pt-50 lh-14" readonly>https://yourdomain.com/?utm_source=xploretefl.com&utm_medium=paid_referral&utm_campaign=premium_listings&utm_content=top_organization</textarea>
@@ -390,7 +390,7 @@
                             </div>
 
 
-                            <div class="mt-50">
+                            <div class="mt-20">
                                 <div class="fw-500">Image</div>
 
                                 <div class="row x-gap-20 y-gap-20 pt-15">
@@ -428,7 +428,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="border-top-light mt-50 mb-50"></div>
+                        <div class="border-top-light mt-20 mb-20"></div>
 
                         <div class="col-xl-10">
                             <div class="text-18 fw-500 mb-10 bg-light-3 pl-10 py-5">3. Featured Video</div>
@@ -446,7 +446,7 @@
                                     </div>
 
                                 </div>
-                                <div class="col-12 mt-20">
+                                <div class="col-12">
 
                                     <div class="form-input ">
                                         <input type="text" name="youtube_url" id="youtube_url">
@@ -454,7 +454,7 @@
                                     </div>
 
                                 </div>
-                                <div class="col-12 mt-20">
+                                <div class="col-12">
 
                                     <div class="form-input ">
                                         <textarea  rows="2" name="video_url" id="video_url" class="bg-light-2 pt-50 lh-14" readonly>https://yourdomain.com/?utm_source=xploretefl.com&utm_medium=paid_referral&utm_campaign=premium_listings&utm_content=featured_video</textarea>
@@ -475,10 +475,10 @@
             </div>
         </div>
 
-        <div class="py-30 px-30 rounded-4 bg-white shadow-3 mb-30">
+        <div class="py-30 px-30 rounded-4 bg-white shadow-3 mb-20">
             <div class="col-xl-10">
 
-                <div class="row x-gap-20 y-gap-20 mt-20 mb-30">
+                <div class="row x-gap-20 y-gap-20">
                     <div class="col-12">
                         <div class="form-radio d-flex items-center ">
                             <div class="radio">
@@ -502,7 +502,7 @@
                             </div>
                             <div class="text-16 lh-1 ml-10 fw-600">Pause listing (De-activate)</div>
                         </div>
-                        <div class="text-light-1 mt-20">Note: To stop the payment, please visit the "Billing" page, and
+                        <div class="text-light-1">Note: To stop the payment, please visit the "Billing" page, and
                             cancel the subscription.</div>
                     </div>
 
@@ -512,7 +512,7 @@
 
         <div class="row x-gap-20 y-gap-20 mt-10">
             <div class="col-12">
-                <div class="d-flex items-center pt-30">
+                <div class="d-flex items-center">
                     <button type="submit" class="button px-30 fw-400 text-14 -blue-1 bg-blue-1 h-50 text-white"
                         title="Save and return to the dashboard">Save and Return</button>
                     {{-- <a href="#" class="button px-30 fw-400 text-14 bg-yellow-1 h-50 text-dark-1 ml-20"

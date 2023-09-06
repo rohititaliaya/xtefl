@@ -1,7 +1,7 @@
 @extends('provider.layouts.app')
 
 @section('content')
-    <div class="row y-gap-20 justify-between items-end pb-60 lg:pb-40 md:pb-32">
+    <div class="row y-gap-20 justify-between items-end pb-20">
         <div class="col-auto">
             <h1 class="text-30 lh-14 fw-600">Listings</h1>
         </div>
@@ -23,7 +23,7 @@
 
 
 @foreach ($listings as $item)
-    <div class="py-30 px-30 rounded-4 bg-white shadow-3 mb-50">
+    <div class="py-30 px-30 rounded-4 bg-white shadow-3 mb-20">
         <div class="row y-gap-20">
             <div class="col-12">
                 <!-- one listing -->

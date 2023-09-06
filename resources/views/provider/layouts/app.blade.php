@@ -7,7 +7,7 @@
         @include('provider.layouts.topnav')
         <div class="dashboard" data-x="dashboard" data-x-toggle="-is-sidebar-open">
             <div class="dashboard__main">
-                <div class="dashboard__content bg-light-2">
+                <div class="dashboard__content bg-light-2 pb-30">
                     @include('provider.layouts.navbar')
                     @yield('content')
                     @include('provider.layouts.footer')
