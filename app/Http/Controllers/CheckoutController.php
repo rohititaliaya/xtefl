@@ -83,8 +83,6 @@ class CheckoutController extends Controller
 
     public function download(Request $request,$session_id)
     {
-        
-
         try {
             $stripe = new \Stripe\StripeClient(
                 env('STRIPE_SECRET')

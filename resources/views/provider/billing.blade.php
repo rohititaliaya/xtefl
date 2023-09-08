@@ -5,7 +5,11 @@
     <div class="col-auto">
 
         <h1 class="text-30 lh-14 fw-600">Billing</h1>
-
+        @if (Session::has('error'))
+        <div class="alert alert-danger">
+            {{ Session::get('error') }}
+        </div>
+    @endif
     </div>
 
     <div class="col-auto">
@@ -100,85 +104,42 @@
                                 <th>Title</th>
                                 <th>Order Date</th>
                                 <th>Execution Time</th>
-                                <th>Total</th>
                                 <th>Paid</th>
-                                <th>Remain</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-
+                            @foreach ($transactions as $item)
                             <tr>
-                                <td>Hotel</td>
-                                <td>The May Fair Hotel</td>
-                                <td>04/04/2022</td>
-                                <td class="lh-16">Check in : 05/14/2022<br>Check out : 05/29/2022</td>
-                                <td class="fw-500">$130</td>
-                                <td>$0</td>
-                                <td>$35</td>
-                                <td><span
-                                        class="rounded-100 py-4 px-10 text-center text-14 fw-500 bg-yellow-4 text-yellow-3">Pending</span>
-                                </td>
-                                <td>Actions</td>
-                            </tr>
+                                <td>{{$item->plan_id}}</td>
+                                @php
+                                    $listing = \App\Models\ProviderListing::where('reference_id',$item->reference_id)->first();
+                                @endphp
+                                <td>{{$listing->campaign}}</td>
+                                <td>{{date('d-m-Y',strtotime($item->created_at))}}</td>
+                                <td class="lh-16">Start : {{date('d-m-Y',strtotime($item->created_at))}}<br>End date : {{date('d-m-Y',strtotime($item->expiry_date))}}</td>
 
-                            <tr>
-                                <td>Hotel</td>
-                                <td>The May Fair Hotel</td>
-                                <td>04/04/2022</td>
-                                <td class="lh-16">Check in : 05/14/2022<br>Check out : 05/29/2022</td>
-                                <td class="fw-500">$130</td>
-                                <td>$0</td>
-                                <td>$35</td>
-                                <td><span
-                                        class="rounded-100 py-4 px-10 text-center text-14 fw-500 bg-blue-1-05 text-blue-1">Confirmed</span>
+                                <td>${{$item->amount}}</td>
+                         
+                                <td>
+                                    @if ($item->status == '1')
+                                        
+                                    <span
+                                        class="rounded-100 py-4 px-10 text-center text-14 fw-500 bg-blue-1-05 text-blue-1">Success</span>
+                                    @else
+                                    <span
+                                    class="rounded-100 py-4 px-10 text-center text-14 fw-500 bg-red-4 text-red-3">Success</span>
+                                
+                                    @endif
                                 </td>
-                                <td>Actions</td>
-                            </tr>
-
-                            <tr>
-                                <td>Hotel</td>
-                                <td>The May Fair Hotel</td>
-                                <td>04/04/2022</td>
-                                <td class="lh-16">Check in : 05/14/2022<br>Check out : 05/29/2022</td>
-                                <td class="fw-500">$130</td>
-                                <td>$0</td>
-                                <td>$35</td>
-                                <td><span
-                                        class="rounded-100 py-4 px-10 text-center text-14 fw-500 bg-red-3 text-red-2">Rejected</span>
+                                <td>
+                                    <a target="_blank" href="{{route('checkout.download',$item->transaction_id)}}" class="btn btn-primary">
+                                            Receipt
+                                    </a>
                                 </td>
-                                <td>Actions</td>
                             </tr>
-
-                            <tr>
-                                <td>Hotel</td>
-                                <td>The May Fair Hotel</td>
-                                <td>04/04/2022</td>
-                                <td class="lh-16">Check in : 05/14/2022<br>Check out : 05/29/2022</td>
-                                <td class="fw-500">$130</td>
-                                <td>$0</td>
-                                <td>$35</td>
-                                <td><span
-                                        class="rounded-100 py-4 px-10 text-center text-14 fw-500 bg-blue-1-05 text-blue-1">Confirmed</span>
-                                </td>
-                                <td>Actions</td>
-                            </tr>
-
-                            <tr>
-                                <td>Hotel</td>
-                                <td>The May Fair Hotel</td>
-                                <td>04/04/2022</td>
-                                <td class="lh-16">Check in : 05/14/2022<br>Check out : 05/29/2022</td>
-                                <td class="fw-500">$130</td>
-                                <td>$0</td>
-                                <td>$35</td>
-                                <td><span
-                                        class="rounded-100 py-4 px-10 text-center text-14 fw-500 bg-blue-1-05 text-blue-1">Confirmed</span>
-                                </td>
-                                <td>Actions</td>
-                            </tr>
-
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

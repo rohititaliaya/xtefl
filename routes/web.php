@@ -24,10 +24,10 @@ Route::get('/plans/{refid}', [HomeController::class,'plans'])->name('plans');
 
 Route::prefix('checkout')->middleware('auth')->group(function ()
 {
+    Route::get('/download/{session_id}', [CheckoutController::class, 'download'])->name('checkout.download');
     Route::get('/{plan}/{refid}', [CheckoutController::class, 'checkout'])->name('checkout');
     Route::get('/success/{plan_id}/redirect', [CheckoutController::class, 'success'])->name('checkout.success');
     Route::get('/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
-    Route::get('/download/{session_id}', [CheckoutController::class, 'download'])->name('checkout.download');
 });
 
 Route::view('/plisting', 'preview');
@@ -124,8 +124,8 @@ Route::get('basic-clicks',  [AdminListingController::class,'basicClicks'])->name
     });
 
 
-    Route::get('{any}', [FrontController::class,'core']);
-    Route::get('{any}/{any2}', [FrontController::class,'core']);
-    Route::get('{any}/{any2}/{any3}', [FrontController::class,'core']);
-    Route::get('{any}/{any2}/{any3}/{any4}', [FrontController::class,'core']);
-    Route::get('{any}/{any2}/{any3}/{any4}/{any5}', [FrontController::class,'core']);
+    // Route::get('{any}', [FrontController::class,'core']);
+    // Route::get('{any}/{any2}', [FrontController::class,'core']);
+    // Route::get('{any}/{any2}/{any3}', [FrontController::class,'core']);
+    // Route::get('{any}/{any2}/{any3}/{any4}', [FrontController::class,'core']);
+    // Route::get('{any}/{any2}/{any3}/{any4}/{any5}', [FrontController::class,'core']);
