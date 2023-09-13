@@ -9,6 +9,16 @@
             <div class="dashboard__main">
                 <div class="dashboard__content bg-light-2 pb-30">
                     @include('provider.layouts.navbar')
+                    @if (Session::has('success'))
+                    <div class="d-flex items-center justify-between bg-success-1 pl-30 pr-20 py-30 rounded-8">
+                        <div class="text-success-2 lh-1 fw-500">{{Session::get('success')}}</div>
+                    </div>
+                    @endif
+                    @if (Session::has('error'))
+                    <div class="d-flex items-center justify-between bg-error-1 pl-30 pr-20 py-30 rounded-8">
+                        <div class="text-error-2 lh-1 fw-500">{{Session::get('error')}}</div>
+                    </div>
+                    @endif
                     @yield('content')
                     @include('provider.layouts.footer')
                 </div>

@@ -190,45 +190,51 @@ class ProviderController extends Controller
         $data['reference_id'] =  $plisting->reference_id;
 
         $recomm_image = $plisting->recomm_image;
-        if ($request->recomm_image) {
+        if ($request->has('recomm_image')) {
             $recomm_image = 'p_'.time().'_'.$user_id.'.'.$request->recomm_image->extension();
             $request->recomm_image->move(public_path('uploads'), $recomm_image);             
             
         }
 
         $popular_image = $plisting->popular_image;
-        if ($request->popular_image) {
+        if ($request->has('popular_image')) {
             $popular_image = 'p_'.time().'_'.$user_id.'.'.$request->popular_image->extension();
             $request->popular_image->move(public_path('uploads'), $popular_image);             
             
         }
 
         $featured_image = $plisting->featured_image;
-        if ($request->featured_image) {
+        if ($request->has('featured_image')) {
             $featured_image = 'p_'.time().'_'.$user_id.'.'.$request->featured_image->extension();
             $request->featured_image->move(public_path('uploads'), $featured_image);             
             
         }
 
         $org_image = $plisting->org_image;
-        if ($request->org_image) {
+        if ($request->has('org_image')) {
             $org_image = 'p_'.time().'_'.$user_id.'.'.$request->org_image->extension();
             $request->org_image->move(public_path('uploads'), $org_image);             
             
         }
         $data['recomm_image'] = $recomm_image;
-        $data['popular_image'] = $popular_image;
         $data['featured_image'] = $featured_image;
         $data['org_image'] = $org_image;
-
+        
         if ($request->same_as == "on") {
             $data['same_as'] = '1';
+            $data['popular_image'] = $recomm_image;
+            $data['popular_title'] = $data['recomm_title'];
         }else {
             $data['same_as'] = '0';
+            $data['popular_image'] = $popular_image;
+        }
+        try {
+            $plisting = ProviderListing::find($id)->update($data);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error',$th->getMessage());   
         }
 
-        $plisting = ProviderListing::find($id)->update($data);
-
+        return redirect()->back()->with('success','Record updated');
         // $data = [
         //     'title' => 'You have edited Listing',
         //     'content' => '<h5>Please contect us</h5>'
@@ -248,7 +254,6 @@ class ProviderController extends Controller
         // $amail->viewData = compact('data');
         // Mail::send($amail);
 
-        return redirect()->back()->with('success','Record updated');
     }
 
     /**
@@ -374,16 +379,17 @@ class ProviderController extends Controller
             
         }
         $data['recomm_image'] = $recomm_image;
-        $data['popular_image'] = $popular_image;
         $data['featured_image'] = $featured_image;
         $data['org_image'] = $org_image;
 
         if ($request->same_as == "on") {
             $data['same_as'] = '1';
+            $data['popular_image'] = $recomm_image;
+            $data['popular_title'] = $data['recomm_title'];
         }else {
             $data['same_as'] = '0';
+            $data['popular_image'] = $popular_image;
         }
-
         $plisting = ProviderListing::create($data);
         return redirect()->back()->withSuccess('Listing Added Successfully !');
     }

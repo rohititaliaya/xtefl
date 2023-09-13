@@ -191,7 +191,7 @@
 
                                     <div class="d-flex items-center">
                                         <div class="form-checkbox ">
-                                            <input type="checkbox" name="same_as" id="same_as">
+                                            <input type="checkbox" name="same_as" id="same_as" onchange="sameAsAboveEvent(this)">
                                             <div class="form-checkbox__mark">
                                                 <div class="form-checkbox__icon icon-check"></div>
                                             </div>
@@ -637,6 +637,26 @@
         var item = ofitem+'_image';
         $('#img-preview-'+ofitem).attr('src',noimage);
         $('#'+item).val('');
+    }
+    function sameAsAboveEvent(input){
+        let noimage = "{{ asset('assets/images/dashboard/avatars/3.png') }}";
+
+        const popular_title = document.getElementById('popular_title');
+        // const popular_url = document.getElementById('popular_url');
+        const popular_image = document.getElementById('img-preview-popular');
+
+        const recomm_title = document.getElementById('recomm_title');
+        // const recomm_url = document.getElementById('recomm_url');
+        const recomm_image = document.getElementById('img-preview-recomm');
+        if(input.checked){
+           popular_title.value = recomm_title.value;
+        //    popular_url.value = popular_url.value;
+           popular_image.src = recomm_image.src;
+        }else{
+            popular_title.value = '';
+            popular_image.src = noimage;
+           
+        }
     }
 </script>
 @endpush
