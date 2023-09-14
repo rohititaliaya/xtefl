@@ -36,6 +36,8 @@
                         </div>
                         <div>
                             <p class="text-14 text-light-1">Enter a valid URL. Begin with https://</p>
+                            <p id="error-success" class="text-success-2"></p>
+                            <p id="error-danger" class="text-error-2"></p>
                         </div>
 
                     </div>
@@ -191,7 +193,10 @@
 
                                     <div class="d-flex items-center">
                                         <div class="form-checkbox ">
-                                            <input type="checkbox" name="same_as" id="same_as" onchange="sameAsAboveEvent(this)">
+                                        
+                                            <input type="checkbox" name="same_as" id="same_as" onchange="sameAsAboveEvent(this)" @if ($listing->same_as == 1)
+                                            checked        
+                                            @endif>
                                             <div class="form-checkbox__mark">
                                                 <div class="form-checkbox__icon icon-check"></div>
                                             </div>
@@ -559,6 +564,15 @@
             featured_url.value = target_url.value;
             org_url.value = target_url.value;
             video_url.value = target_url.value;
+        }
+        const urlRegex = /^(http|https):\/\/[^ "]+$/;
+
+        if (urlRegex.test(target_url.value)) {
+            document.getElementById('error-success').textContent = 'Valid URL';
+            document.getElementById('error-danger').textContent = '';
+        }else{
+            document.getElementById('error-success').textContent = '';
+            document.getElementById('error-danger').textContent = 'Invalid URL';
         }
     });
 

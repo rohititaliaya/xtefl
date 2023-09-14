@@ -191,14 +191,14 @@ class ProviderController extends Controller
 
         $recomm_image = $plisting->recomm_image;
         if ($request->has('recomm_image')) {
-            $recomm_image = 'p_'.time().'_'.$user_id.'.'.$request->recomm_image->extension();
+            $recomm_image = 'recomm_'.time().'_'.$user_id.'.'.$request->recomm_image->extension();
             $request->recomm_image->move(public_path('uploads'), $recomm_image);             
             
         }
 
         $popular_image = $plisting->popular_image;
         if ($request->has('popular_image')) {
-            $popular_image = 'p_'.time().'_'.$user_id.'.'.$request->popular_image->extension();
+            $popular_image = 'popular_'.time().'_'.$user_id.'.'.$request->popular_image->extension();
             $request->popular_image->move(public_path('uploads'), $popular_image);             
             
         }
@@ -211,8 +211,8 @@ class ProviderController extends Controller
         }
 
         $org_image = $plisting->org_image;
-        if ($request->has('org_image')) {
-            $org_image = 'p_'.time().'_'.$user_id.'.'.$request->org_image->extension();
+        if ($request->has('featured_image')) {
+            $org_image = 'featured_'.time().'_'.$user_id.'.'.$request->org_image->extension();
             $request->org_image->move(public_path('uploads'), $org_image);             
             
         }
@@ -353,28 +353,28 @@ class ProviderController extends Controller
 
         $recomm_image = "";
         if ($request->recomm_image) {
-            $recomm_image = 'p_'.time().'_'.$user_id.'.'.$request->recomm_image->extension();
+            $recomm_image = 'recomm_'.time().'_'.$user_id.'.'.$request->recomm_image->extension();
             $request->recomm_image->move(public_path('uploads'), $recomm_image);             
             
         }
 
         $popular_image = "";
         if ($request->popular_image) {
-            $popular_image = 'p_'.time().'_'.$user_id.'.'.$request->popular_image->extension();
+            $popular_image = 'popular_'.time().'_'.$user_id.'.'.$request->popular_image->extension();
             $request->popular_image->move(public_path('uploads'), $popular_image);             
             
         }
 
         $featured_image = "";
         if ($request->featured_image) {
-            $featured_image = 'p_'.time().'_'.$user_id.'.'.$request->featured_image->extension();
+            $featured_image = 'featured_'.time().'_'.$user_id.'.'.$request->featured_image->extension();
             $request->featured_image->move(public_path('uploads'), $featured_image);             
             
         }
 
         $org_image = "";
         if ($request->org_image) {
-            $org_image = 'p_'.time().'_'.$user_id.'.'.$request->org_image->extension();
+            $org_image = 'org_'.time().'_'.$user_id.'.'.$request->org_image->extension();
             $request->org_image->move(public_path('uploads'), $org_image);             
             
         }
